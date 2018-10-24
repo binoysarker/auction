@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\News;
+use App\Auction_Item;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,39 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home');
-    }
+     public function index()
+     {
+       $auction_items = Auction_Item::paginate(10);
+       return view('front-end.home',compact('auction_items'));
+     }
+     /**
+      * about page
+      */
+      public function about()
+      {
+        return view('front-end.about');
+      }
+     /**
+      * contact page
+      */
+      public function contact()
+      {
+        return view('front-end.contact');
+      }
+     /**
+      * news page
+      */
+      public function news()
+      {
+        $all_news = News::paginate(3);
+        return view('front-end.news',compact('all_news'));
+      }
+     /**
+      * show
+      */
+      public function show($id)
+      {
+        $item = Auction_Item::findOrFail($id);
+        return view('front-end.showDetail',compact('item'));
+      }
 }

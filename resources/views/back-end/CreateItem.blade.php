@@ -5,6 +5,7 @@
 @section('content')
   <section class="column is-10">
     <form class="" action="{{url('/admin/save-item')}}" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }}
       <div class="field">
         <label class="label">Short Description</label>
         <div class="control">

@@ -5,6 +5,7 @@
 @section('content')
   <section class="column is-8">
     <form class="" action="{{url('/admin/update-news-item/'.$item->id)}}" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }}
 
 
       <div class="field">

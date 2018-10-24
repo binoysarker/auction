@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/item-detail/{id}', 'HomeController@show');
 Route::get('/about', 'HomeController@about');
 Route::get('/contact', 'HomeController@contact');
@@ -41,4 +41,4 @@ Route::group(['prefix' => 'admin'], function () use ($router) {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

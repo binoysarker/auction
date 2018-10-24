@@ -15,7 +15,7 @@
                     @php
                     $image_path = preg_replace('/.\//','',$item->image_file,1);
                     @endphp
-                    <img id="" src="{{url('/public/'.$image_path)}}">
+                    <img id="" src="{{asset($image_path)}}">
                   </figure>
                   {{-- <div class="card-content is-overlay is-clipped">
                 </div> --}}
@@ -45,7 +45,7 @@
                   @php
                   $image_path = preg_replace('/.\//','',$item->image_file,1);
                   @endphp
-                  <img id="" src="{{url('/public/'.$image_path)}}">
+                  <img id="" src="{{asset($image_path)}}">
                 </p>
               </figure>
               <div class="media-content">

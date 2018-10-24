@@ -5,10 +5,11 @@
 @section('content')
   <section class="column is-8">
     <form class="" action="{{url('/admin/update-item/'.$item->id)}}" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }}
       <div class="field">
         <label class="label">Short Description</label>
         <div class="control">
-          <input class="input" type="text" name="short_desciption" placeholder="Short Description" value="{{$item->short_desciption}}">
+          <input class="input" type="text" name="short_desciption" placeholder="Short Description" value="{!!$item->short_desciption!!}">
         </div>
       </div>
 
@@ -16,7 +17,7 @@
         <label class="label">Long Description</label>
         <div class="control">
           <textarea class="textarea" name="long_description" placeholder="Long Description">
-            {{$item->long_description}}
+            {!!$item->long_description!!}
           </textarea>
         </div>
       </div>
@@ -25,7 +26,7 @@
           @php
           $image_path = preg_replace('/.\//','',$item->image_file,1);
           @endphp
-          <img id="listImage" src="{{url('/public/'.$image_path)}}">
+          <img id="listImage" src="{{asset($image_path)}}">
         </figure>
         <div class="file">
           <label class="file-label">
@@ -69,7 +70,7 @@
       <div class="field">
         <div class="select">
           <select name="is_featured">
-            <option>Make Featured Item</option>
+            <option value="0">Make Featured Item</option>
             <option value="1">yes</option>
             <option value="0">no</option>
           </select>

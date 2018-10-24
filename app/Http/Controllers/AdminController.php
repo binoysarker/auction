@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
 
   public function index()
   {
@@ -19,11 +23,11 @@ class AdminController extends Controller
     // return $auction_items;
     return view('back-end.AllItems',compact('auction_items'));
   }
-  public function CreateItem()
+  public function createItem()
   {
     return view('back-end.CreateItem');
   }
-  public function Store(Request $request)
+  public function store(Request $request)
   {
     // return $request->all();
     // Validation
@@ -44,7 +48,7 @@ class AdminController extends Controller
         $picName = $request->file('image_file')->getClientOriginalName();
         $picName = uniqid() . '_' . $picName;
         $path = 'uploads' . DIRECTORY_SEPARATOR . 'auction_items' . DIRECTORY_SEPARATOR;
-        $destinationPath = "./uploads/auction_items"; // upload path
+        $destinationPath = "./public/uploads/auction_items"; // upload path
         if (!file_exists($destinationPath)) {
           mkdir($destinationPath, 0777, true);
         }
@@ -86,6 +90,7 @@ class AdminController extends Controller
     */
     public function update($id,Request $request)
     {
+      // return $request->all();
       $auction_item = Auction_Item::findOrFail($id);
       // upload the image
       if ($request->hasFile('image_file') && $request->file('image_file')->isValid()) {
@@ -94,7 +99,7 @@ class AdminController extends Controller
         $picName = $request->file('image_file')->getClientOriginalName();
         $picName = uniqid() . '_' . $picName;
         $path = 'uploads' . DIRECTORY_SEPARATOR . 'auction_items' . DIRECTORY_SEPARATOR;
-        $destinationPath = "./uploads/auction_items"; // upload path
+        $destinationPath = "./public/uploads/auction_items"; // upload path
         if (!file_exists($destinationPath)) {
           mkdir($destinationPath, 0777, true);
         }

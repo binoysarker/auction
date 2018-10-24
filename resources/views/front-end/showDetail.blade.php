@@ -12,7 +12,7 @@
               @php
               $image_path = preg_replace('/.\//','',$item->image_file,1);
               @endphp
-              <img id="showImage" src="{{url('/public/'.$image_path)}}">
+              <img id="showImage" src="{{asset($image_path)}}">
             </figure>
             <div class="card-content">
 
@@ -36,7 +36,7 @@
                 </address>
                 <h1 class="subtitle">{{$item->short_desciption}}</h1>
                 <p>
-                  {{$item->long_description}}
+                  {!!$item->long_description!!}
                 </p>
               </div>
             </div>

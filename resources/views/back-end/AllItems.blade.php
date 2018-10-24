@@ -22,7 +22,7 @@
                 @php
                   $image_path = preg_replace('/.\//','',$item->image_file,1);
                 @endphp
-                <img id="listImage" src="{{url('/public/'.$image_path)}}">
+                <img id="listImage" src="{{asset($image_path)}}">
               </figure>
               <p class="is-small">
                 {{substr($item->short_desciption,0,70)}}
