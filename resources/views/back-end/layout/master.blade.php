@@ -124,7 +124,7 @@
           </section>
         </div>
         <div class="column is-9">
-          @yield('main-content')
+          @yield('content')
         </div>
       </div>
     </section>

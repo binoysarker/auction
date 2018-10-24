@@ -2,7 +2,7 @@
 @section('title')
   Create News
 @endsection
-@section('main-content')
+@section('content')
   <section class="column is-10">
     <form class="" action="{{url('/admin/save-news')}}" method="post">
       <div class="field">

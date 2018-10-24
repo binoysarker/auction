@@ -2,7 +2,7 @@
 @section('title')
   Home
 @endsection
-@section('main-content')
+@section('content')
   <div class="columns">
     <div class="column is-9 pr0">
       <section class="box">

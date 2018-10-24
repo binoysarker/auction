@@ -2,7 +2,7 @@
 @section('title')
   Create Item
 @endsection
-@section('main-content')
+@section('content')
   <section class="column is-10">
     <form class="" action="{{url('/admin/save-item')}}" method="post" enctype="multipart/form-data">
       <div class="field">

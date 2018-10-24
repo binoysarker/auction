@@ -2,7 +2,7 @@
 @section('title')
   All Auction Items
 @endsection
-@section('main-content')
+@section('content')
   <section>
     <table class="table table is-striped is-hoverable">
       <thead class="thead">

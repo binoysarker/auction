@@ -2,7 +2,7 @@
 @section('title')
   Edit Item
 @endsection
-@section('main-content')
+@section('content')
   <section class="column is-8">
     <form class="" action="{{url('/admin/update-item/'.$item->id)}}" method="post" enctype="multipart/form-data">
       <div class="field">

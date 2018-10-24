@@ -63,7 +63,7 @@
 
 
     <section class=" bgColor">
-      @yield('main-content')
+      @yield('content')
     </section>
 
 

@@ -2,7 +2,7 @@
 @section('title')
   About Us
 @endsection
-@section('main-content')
+@section('content')
   <div class="columns">
     <div class="column is-9">
       <section>

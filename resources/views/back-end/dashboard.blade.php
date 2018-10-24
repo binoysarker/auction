@@ -2,7 +2,7 @@
 @section('title')
   Dashboard
 @endsection
-@section('main-content')
+@section('content')
   <section>
     <div class="card">
       <div class="card-image">
