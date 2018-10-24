@@ -1,0 +1,16 @@
+.bgColor{
+  background: #466A9B;
+}
+#cardImage{
+  width: 200px;
+  height: 200px;
+}
+.textWhite{
+  color: white;
+}
+.pr0{
+  padding-right: 0px;
+}
+.pl0{
+  padding-left: 0px;
+}
