@@ -1,6 +1,20 @@
-.bgColor{
-  background: #466A9B;
+@font-face {
+  font-family: 'Bernch';
+  src: url('publiv/font/BERNCH.TTF') format('truetype');
 }
+
+
+body,html{
+  font-family: 'Bernch';
+
+}
+body{
+  background-image: url('../image/background.jpg');
+  background-repeat: repeat;
+}
+/* .bgColor{
+  background: #466A9B;
+} */
 #cardImage{
   width: 200px;
   height: 200px;
@@ -13,4 +27,23 @@
 }
 .pl0{
   padding-left: 0px;
+}
+.customHero{
+  height: 300px;
+  overflow: scroll;
+}
+.customHeight{
+  height: 500px;
+  overflow-y: scroll;
+}
+.customList{
+  height: 200px;
+  overflow-y: scroll;
+}
+.changeMargin{
+  margin-top: 38px;
+}
+#customCss{
+  align-self: center;
+  padding-top: 12px;
 }

@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Auction_Item;
+use App\BidInfo;
 
 class User extends Authenticatable
 {
@@ -27,4 +29,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function auction_items()
+    {
+      return $this->hasMany(Auction_Item::class,'user_id');
+    }
+    public function bidInfo()
+    {
+      return $this->hasMany(BidInfo::class,'user_id');
+    }
 }

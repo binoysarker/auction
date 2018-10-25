@@ -5,6 +5,20 @@
 @section('content')
   <div class="columns">
     <div class="column is-9 pr0">
+      <section class="hero is-primary customHero">
+        <div class="hero-body">
+          <div class="content">
+            <h1 class="title">
+              Great News
+            </h1>
+            @isset($bilboardMessage)
+              <h2 class="subtitle">
+                {!!$bilboardMessage->bilboard_message!!}
+              </h2>
+            @endisset
+          </div>
+        </div>
+      </section>
       <section class="box">
         <div class="columns is-multiline">
           @foreach ($auction_items as $item)
@@ -30,14 +44,20 @@
             </div>
           </div>
         @endforeach
+
+      </div>
+      <div class="column is-2 is-offset-3">
+        <div class="box">
+          {{$auction_items->links()}}
+        </div>
       </div>
     </section>
   </div>
-  <div class="column is-3 pl0">
-    <section class="box">
-      <h1 class="title">Featured Items</h1>
-      @foreach ($auction_items as $item)
-        @if ($item->is_featured == 1)
+  <div class="column is-3 pl0 ">
+    <section class="box ">
+      <div class="customHeight">
+        <h1 class="title changeMargin">Featured Items</h1>
+        @foreach ($auction_items_featured as $item)
           <a href="{{url('/item-detail/'.$item->id)}}">
             <article class="media">
               <figure class="media-left">
@@ -58,17 +78,16 @@
                 </div>
 
               </div>
-              <div class="media-right">
 
-              </div>
             </article>
-
           </a>
-        @endif
-      @endforeach
-      </section>
-    </div>
+        @endforeach
+
+      </div>
+
+    </section>
   </div>
+</div>
 
 
 @endsection

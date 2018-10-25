@@ -40,6 +40,17 @@
 
         </div>
       </div>
+      <div class="field">
+        <article class="message is-primary ">
+          <div class="message-header">
+            <p>Terms And Condition</p>
+          </div>
+          <div class="message-body customMessage">
+            {!!$termsCondition->terms_condition!!}
+          </div>
+        </article>
+
+      </div>
       <div class="control">
         <input type="submit" class="button is-primary" value="Register">
 
@@ -47,5 +58,12 @@
     </div>
   </form>
 </section>
+
+<style media="screen">
+.customMessage{
+  height: 200px;
+  overflow: scroll;
+}
+</style>
 
 @endsection

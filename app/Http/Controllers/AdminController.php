@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\BidInfo;
 use App\Auction_Item;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,10 @@ class AdminController extends Controller
     $auction_items = Auction_Item::paginate(10);
     // return $auction_items;
     return view('back-end.AllItems',compact('auction_items'));
+  }
+  public function temsCondition()
+  {
+    return view('back-end.CreateTermsCondition');
   }
   public function createItem()
   {
@@ -58,6 +63,7 @@ class AdminController extends Controller
 
       // store the data in the auction items table
       $auction_item = new Auction_Item();
+      $auction_item->user_id = auth()->user()->id;
       $auction_item->short_desciption = $request->input('short_desciption');
       $auction_item->long_description = $request->input('long_description');
       $auction_item->image_file = $destinationPath."/".$picName;
@@ -133,6 +139,9 @@ class AdminController extends Controller
      public function delete($id)
      {
        $auction_item = Auction_Item::findOrFail($id);
+       // delte all the bids related to this item
+       $bids = BidInfo::where('auction_item_id',$auction_item->id)->get();
+       $bids->delete();
        $auction_item->delete();
        return redirect('/admin/all-items');
      }

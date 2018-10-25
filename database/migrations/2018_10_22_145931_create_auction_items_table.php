@@ -15,6 +15,7 @@ class CreateAuctionItemsTable extends Migration
     {
         Schema::create('auction_items', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('short_desciption');
             $table->text('long_description');
             $table->string('image_file');

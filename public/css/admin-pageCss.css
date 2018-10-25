@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Bernch';
+  src: url('publiv/font/BERNCH.TTF') format('truetype');
+}
+
+
+body,html{
+  font-family: 'Bernch';
+}
+
 .bgColor{
   background: #466A9B;
 }

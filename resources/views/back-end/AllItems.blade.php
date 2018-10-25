@@ -34,6 +34,7 @@
                 <i class="fas fa-edit">Edit</i>
               </a>
               <form class="" action="{{url('/admin/auction_item/'.$item->id.'/delete')}}" method="post">
+                {{ csrf_field() }}
                 <input type="submit" name="delete" class="button is-danger is-small" value="Delete">
               </form>
             </td>

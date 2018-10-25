@@ -60,81 +60,110 @@
 
             <div class="navbar-end">
               <div class="navbar-item">
-
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link">
-                    {{-- <figure class="image is-64*64">
+                @guest
+                  <div class="buttons">
+                    <a class="button is-primary" href="{{ route('register') }}">
+                      <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light" href="{{ route('login') }}">
+                      Sign in
+                    </a>
+                  </div>
+                @else
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                      {{-- <figure class="image is-64*64">
                       <img src="https://bulma.io/images/placeholders/128x128.png">
                     </figure> --}}
+                    {{ Auth::user()->name }}
                     <i class="fas fa-user"></i>
                   </a>
 
                   <div class="navbar-dropdown">
-                    <a class="navbar-item">
+                    <a class="navbar-item" href="{{ route('login') }}">
                       Sign in
                     </a>
-                    <a class="navbar-item">
-                      sign out
-                    </a>
+                    <a class="navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    sign out
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                  </form>
 
-                  </div>
                 </div>
               </div>
-            </div>
+            @endguest
+
           </div>
-        </nav>
-      </header>
-    </section>
 
-
-    <section class="section">
-      <div class="columns">
-        <div class="column is-3">
-          <section>
-            <aside class="menu">
-
-              <ul class="menu-list">
-                <li><a>Dashboard</a></li>
-                <li><a>Customers</a></li>
-              </ul>
-
-              <ul class="menu-list">
-                <li>
-                  <a class="is-active">Auctions</a>
-                  <ul>
-                    <li><a href="{{url('/admin/all-items')}}">All Items</a></li>
-                    <li><a href="{{url('/admin/create-item')}}">Create Item</a></li>
-                  </ul>
-                </li>
-
-              </ul>
-              <ul class="menu-list">
-                <li>
-                  <a class="is-active">News</a>
-                  <ul>
-                    <li><a href="{{url('/admin/all-news')}}">All News</a></li>
-                    <li><a href="{{url('/admin/add-new-news')}}">Add New News</a></li>
-                  </ul>
-                </li>
-
-              </ul>
-
-            </aside>
-          </section>
-        </div>
-        <div class="column is-9">
-          @yield('content')
         </div>
       </div>
-    </section>
+    </nav>
+  </header>
+</section>
 
+
+<section class="section">
+  <div class="columns">
+    <div class="column is-3">
+      <section>
+        <aside class="menu">
+          <ul class="menu-list">
+            <li>
+              <a class="is-active">Dashboard</a>
+              <ul>
+                <li><a href="{{url('/admin/add-terms-condition')}}">Add Terms And Condition</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="menu-list">
+            <li>
+              <a class="is-active">Bilboard Message</a>
+              <ul>
+                <li><a href="{{url('/admin/all-bilboard-message')}}">Show all bilboard message</a></li>
+                <li><a href="{{url('/admin/add-bilboard-message')}}">Add bilboard message</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="menu-list">
+            <li>
+              <a class="is-active">Auctions</a>
+              <ul>
+                <li><a href="{{url('/admin/all-items')}}">All Items</a></li>
+                <li><a href="{{url('/admin/create-item')}}">Create Item</a></li>
+              </ul>
+            </li>
+
+          </ul>
+          <ul class="menu-list">
+            <li>
+              <a class="is-active">News</a>
+              <ul>
+                <li><a href="{{url('/admin/all-news')}}">All News</a></li>
+                <li><a href="{{url('/admin/add-new-news')}}">Add New News</a></li>
+              </ul>
+            </li>
+
+          </ul>
+
+        </aside>
+      </section>
+    </div>
+    <div class="column is-9">
+      @yield('content')
+    </div>
   </div>
-  {{-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ayn49ntzgcmzv4p8sz6zy5rjo2v1150mxjdbqfpwklnkm5xe"></script> --}}
-  {{-- <script>tinymce.init({ selector:'textarea' });</script> --}}
-  <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
-  <script>
-  CKEDITOR.replace( 'news_text' );
-		</script>
+</section>
+
+</div>
+{{-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=ayn49ntzgcmzv4p8sz6zy5rjo2v1150mxjdbqfpwklnkm5xe"></script> --}}
+{{-- <script>tinymce.init({ selector:'textarea' });</script> --}}
+<script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
+<script>
+CKEDITOR.replace( 'news_text' );
+
+</script>
 </body>
 </html>
